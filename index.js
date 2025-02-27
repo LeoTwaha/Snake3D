@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import {OrbitControls} from "three/addons/controls/OrbitControls.js";
+
 const canvas = document.getElementById("canvas");
 const canvas2d = document.getElementById("canvas2d");
 canvas2d.width = 200;
@@ -13,7 +13,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.5, 100);
-const controls = new OrbitControls(camera, renderer.domElement);
+
 const scene = new THREE.Scene();
 const light = new THREE.DirectionalLight(0xffffff, 3);
 let angle = 0;
@@ -165,10 +165,7 @@ function isMobile() {
    document.getElementById("down").addEventListener("click", () => direction = "backward");
    document.getElementById("left").addEventListener("click", () => direction = "left");
    document.getElementById("right").addEventListener("click", () => direction = "right");
-  } else {
-    // Code to execute if the user is on a PC or other non-mobile device
-    console.log("PC or non-mobile device detected");
-  }
+  } 
 function spawnApple(){
     const apple = new THREE.Mesh(new THREE.BoxGeometry(1,1,1), new THREE.MeshStandardMaterial({color: 0xff0000}));
     randX = (Math.floor( Math.random() * 18 - 9)) + .5; 
@@ -322,14 +319,14 @@ function animate() {
     
     
     renderer.render(scene, camera);
-    controls.update();
+    
         cameraAngle = THREE.MathUtils.lerp( cameraAngle, angle, 0.01 );
 camera.position.setFromSphericalCoords( 2, 1, cameraAngle );
 camera.position.add( headMeshes[0].position );
 camera.lookAt( headMeshes[0].position );
     } else {
         cancelAnimationFrame(animate);
-        console.log("gameOver");
+       
         gameBox.innerHTML = `
     
      <p id="score"></p>
