@@ -234,7 +234,7 @@ function animate() {
     walls.forEach(wall => {
         if(new THREE.Box3().setFromObject(wall).intersectsBox(new THREE.Box3().setFromObject(headMeshes[0]))){
             isGameOver = true;
-            causeOfDeath = "You ran into yourself";
+            causeOfDeath = "You ran into a wall";
             
         }
     })
