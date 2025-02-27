@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: rgb(22, 22, 22);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="s">
+        <div id="bord">
+        <div id="borderBorder">
+        <div id="titleBorder">
+        <div id="title">
+           
+                <h1>Snake 3D</h1>
+               
+        </div>
+         </div>
+         </div>
+        </div>
+        </div>
+        <button id="play">Play</button>
+        <button id="howTo">How-To</button>
+        <dialog id="howMenu">
+            <button id="closeHow">X</button>
+            <div id="help">
+            <div class="helpSection">
+            <div id="controls">
+            <div class="controls"><p>▴</p></div>
+            <div  id="arrowBox">
+            <div class="controls"><p>◂</p></div>
+            <div class="controls"><p>▾</p></div>
+            <div class="controls"><p>▸</p></div>
+            
+            </div>
+            </div>
+            <p id="controlsText">Use the Arrows to control the Snake WASD / OnScreen Buttons</p>
+            </div>
+            <div class="helpSection">
+                <div id="preview">
+                    <div id="previewA"></div>
+                    <div id="previewS"></div>
+                </div>
+                <p id="controlsText">Collect Apples to get bigger. Avoid running into walls or yourself</p>
+            </div>
+            <div class="helpSection">
+                <div id="preview">
+                    <p>Score: 100</p>
+                </div>
+                <p id="controlsText">Use the miniMap to find apple outside of your FOV. Your score will be in the top right</p>
+            </div>
+            </div>
+        </dialog>
+    </div>
+    <script>
+        const container = document.getElementById("container");
+        const play = document.getElementById("play");
+        const bord = document.getElementById("bord");
+        const howMenu = document.getElementById("howMenu")
+
+        bord.style.border = "1px solid rgb(22, 22, 22)";
+        document.getElementById("howTo").addEventListener("click", () => howMenu.showModal())
+        document.getElementById("closeHow").addEventListener("click", () => howMenu.close())
+        setInterval(()=>  bord.style.borderColor = "rgb(55, 255, 55)", 2000);
+        play.addEventListener("click", ()=> {
+            container.style.animation = "trans .5s linear 0s 1 forwards"
+            document.body.style.animation = "backgroundTrans .5s linear .5s 1 forwards"
+            setTimeout(() => {window.location.href="./game.html"}, 1000);
+        })
+
+        
+    </script>
+</body>
+</html>
